@@ -15,10 +15,8 @@ app.get('/', function (req, res){
 
 app.use('/api', southwest);
 
-
-
 app.listen(port, function(){
-	console.log('Server is listening on ' + port)
+	console.log('Server is listening on http://localhost:' + port)
 });
 
 
