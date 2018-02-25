@@ -9,9 +9,10 @@ app.disable('x-powered-by'); //don't flaunt express
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true})); //parse json and www-form-urlencoded
 
-app.get('/', function (req, res){
-	return res.status(200).send('pong')
-})
+app.use('/', express.static('public'));
+// app.get('/', function (req, res){
+// 	return res.status(200).send('pong')
+// })
 
 app.use('/api', southwest);
 

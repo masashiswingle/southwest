@@ -30,7 +30,7 @@ router.post('/southwest', function(req, res){
 	}
 	if (req.body.date[0] < 2018) return res.status(400).send("quit trolling, hoe");
 	//(2012, 11, 21, 5, 30, 0); Year / Month 0-11 / Hour / Minute / Second
-	southwestSnipe(req, res);
+	southwestSnipe(req, res); 
 	// var date = new Date(req.body.date[0], req.body.date[1], req.body.date[2], req.body.date[3], req.body.date[4], 0);
 	
 	// var first = schedule.scheduleJob(date, function (){
@@ -68,18 +68,19 @@ function southwestSnipe (req, res) {
 			.build();
 			console.log(driver)
 		driver.get('https://www.southwest.com/air/check-in/index.html?redirectToVision=true&leapfrogRequest=true')
-		driver.wait(function(){
-
-		}, 10000); 
 		driver.findElement(selenium.By.id('confirmationNumber')).sendKeys(req.body.confirmation);
 		driver.findElement(selenium.By.id('passengerFirstName')).sendKeys(req.body.firstname);
 		driver.findElement(selenium.By.id('passengerLastName')).sendKeys(req.body.lastname);
 		driver.findElement(selenium.By.id('form-mixin--submit-button')).click();	
 		driver.findElement(selenium.By.id('form-mixin--submit-button')).click();	
-		driver.findElement(selenium.By.id('form-mixin--submit-button')).click();		
-		driver.wait(function () {
-		}, 3000);
-		 //driver.quit();
+		driver.findElement(selenium.By.id('form-mixin--submit-button')).click();	
+		//driver.wait(until.titleIs('webdriver - Google Search'), 1000)
+		setTimeout(function(){
+			console.log('what', driver)
+			driver.quit();
+
+		}, 8000);
+		
 		return res.status(200).send({message: "Successful Snipe will be Executed :)"});
  	//})
 }
