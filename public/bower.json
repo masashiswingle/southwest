@@ -1,0 +1,20 @@
+{
+  "name": "public",
+  "homepage": "https://github.com/masashiswingle/southwest",
+  "authors": [
+    "Masashi Swingle <masashiswingle@hotmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.0.0"
+  }
+}
